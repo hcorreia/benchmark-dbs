@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.vagrant
+.env
+users_*.csv
+conf.py
+sqlite3.db

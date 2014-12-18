@@ -1,0 +1,17 @@
+mysql = {
+    "host":     "localhost",
+    "user":     "root",
+    "passwd":   "root",
+    "db":       "bench_db",
+    "port":     13306,
+}
+pg = {
+    "host":     "localhost",
+    "user":     "bench_user",
+    "password": "bench",
+    "database": "bench_db",
+    "port":     5432,
+}
+sqlite3 = {
+    "file":     "sqlite3.db",
+}

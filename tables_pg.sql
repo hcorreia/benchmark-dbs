@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS users (
+    id serial PRIMARY KEY,
+    pid_index integer NOT NULL,
+    pid_no_index integer NOT NULL,
+    name character varying(100) NOT NULL,
+    description text NOT NULL,
+    created_at timestamp with time zone NOT NULL,
+    updated_at timestamp with time zone NOT NULL,
+    col1 character varying(100) NOT NULL,
+    col2 character varying(100) NOT NULL,
+    col3 character varying(100) NOT NULL,
+    col4 character varying(100) NOT NULL,
+    col5 character varying(100) NOT NULL,
+    col6 character varying(100) NOT NULL,
+    col7 character varying(100) NOT NULL,
+    col8 character varying(100) NOT NULL,
+    col9 character varying(100) NOT NULL,
+    col10 character varying(100) NOT NULL,
+    col11 character varying(100) NOT NULL,
+    col12 character varying(100) NOT NULL,
+    col13 character varying(100) NOT NULL
+);
