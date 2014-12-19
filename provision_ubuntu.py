@@ -14,6 +14,9 @@ pg = {
     'pass': 'bench',
 }
 
+os.system("apt-get update -y")
+os.system("apt-get upgrade -y")
+
 os.system("""apt-get install -y \\
     mysql-server \\
     postgresql \\
