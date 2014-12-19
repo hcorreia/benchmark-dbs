@@ -228,6 +228,11 @@ if __name__ == '__main__':
     if not jobs:
         print '\n', 'No valid databases to benchmark!', '\n'
         quit()
-    print '\n', 'Starting benchmark for', count, 'rows:', ','.join(dbs)
+
+    print '\n', 'Starting benchmark:'
+    print '    dbs:', ', '.join(dbs)
+    print '    count:', count
+    print '    myisam:', args['--myisam']
+    print '    fork:', args['--fork']
 
     run(jobs, fork=args['--fork'])
