@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": [
+				".env*",
+				".ENV*",
+				".vagrant",
+				"tmp"
+			],
+			"file_exclude_patterns": [
+				"*.db",
+				"*.sqlite3",
+				"*.sublime-workspace"
+			]
+		}
+	]
+}
