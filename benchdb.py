@@ -33,6 +33,10 @@ settings.configure(
             'PASSWORD': conf.mysql['passwd'],
             'HOST':     conf.mysql['host'],
             'PORT':     conf.mysql['port'],
+            # 'STORAGE_ENGINE': 'MYISAM',
+            # 'OPTIONS': {
+            #     'init_command': 'SET storage_engine=MYISAM',
+            # },
         },
         'pg': {
             'ENGINE':   'django.db.backends.postgresql_psycopg2',

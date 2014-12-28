@@ -4,7 +4,7 @@ __pycache__/
 .env
 users_*.csv
 conf.py
-data*.json
+/data/*
 *.db
 *.sqlite3
 *.sublime-workspace

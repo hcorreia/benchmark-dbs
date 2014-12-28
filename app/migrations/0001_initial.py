@@ -14,11 +14,22 @@ class Migration(migrations.Migration):
             name='Content',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('pid', models.IntegerField(null=True, blank=True)),
                 ('pid_index', models.IntegerField(db_index=True, null=True, blank=True)),
                 ('name', models.CharField(max_length=100, null=True, blank=True)),
                 ('description', models.TextField(blank=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='ContentTag',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('content', models.ForeignKey(to='app.Content')),
             ],
             options={
             },
@@ -47,7 +58,7 @@ class Migration(migrations.Migration):
                 ('col14', models.CharField(max_length=100, null=True, blank=True)),
                 ('col15', models.CharField(max_length=100, null=True, blank=True)),
                 ('col16', models.CharField(max_length=100, null=True, blank=True)),
-                ('parent', models.OneToOneField(to='app.Content')),
+                ('parent', models.OneToOneField(related_name='data', to='app.Content')),
             ],
             options={
             },
@@ -70,9 +81,15 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.AddField(
+            model_name='contenttag',
+            name='tag',
+            field=models.ForeignKey(to='app.Tag'),
+            preserve_default=True,
+        ),
+        migrations.AddField(
             model_name='content',
             name='tags',
-            field=models.ManyToManyField(to='app.Tag'),
+            field=models.ManyToManyField(to='app.Tag', through='app.ContentTag'),
             preserve_default=True,
         ),
     ]

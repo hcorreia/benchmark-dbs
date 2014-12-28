@@ -2,17 +2,17 @@ from django.db import models
 
 
 class Content(models.Model):
-    pid_index = models.IntegerField(blank=True, null=True)
+    pid       = models.IntegerField(blank=True, null=True)
     pid_index = models.IntegerField(blank=True, null=True, db_index=True)
     name = models.CharField(blank=True, null=True, max_length=100)
     description = models.TextField(blank=True)
-    tags = models.ManyToManyField('Tag')
+    tags = models.ManyToManyField('Tag', through='ContentTag')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
 class Data(models.Model):
-    parent = models.OneToOneField('Content')
+    parent = models.OneToOneField('Content', related_name='data')
     data = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -56,3 +56,8 @@ class Tag(models.Model):
     label_num_index = models.PositiveSmallIntegerField(choices=LABEL_NUM_CHOICES, db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class ContentTag(models.Model):
+    content = models.ForeignKey('Content')
+    tag = models.ForeignKey('Tag')
